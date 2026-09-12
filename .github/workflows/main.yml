@@ -18,5 +18,7 @@ jobs:
         with:
           name: MagicCam-Module
           path: |
+            *.apk
+            **/*.apk
             *.zip
             **/*.zip
