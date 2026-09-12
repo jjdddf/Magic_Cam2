@@ -13,12 +13,12 @@ jobs:
         run: |
           chmod +x build.sh
           ./build.sh
+      # 新增：把模块文件打包成zip（Magisk模块标准打包）
+      - name: Package Magisk Module Zip
+        run: |
+          zip -r MagicCam-Module.zip . -i "module.prop" -i "system/**/*" -i "*.so"
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: MagicCam-Module
-          path: |
-            *.apk
-            **/*.apk
-            *.zip
-            **/*.zip
+          path: MagicCam-Module.zip
