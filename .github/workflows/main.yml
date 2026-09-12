@@ -1,24 +1,24 @@
-name: Build MagicCam
-on: workflow_dispatch
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Setup NDK
-        uses: nttld/setup-ndk@v1
-        with:
-          ndk-version: r25c
-      - name: Build
-        run: |
+name: Build MagicCam名称: 构建MagicCam名称: 构建MagicCam名称: 构建MagicCam名称: 构建MagicCam名称: 构建MagicCam名称: 构建MagicCam名称: 构建MagicCam名称: 构建MagicCam名称: 构建MagicCam名称: 构建MagicCam名称: 构建MagicCam名称: 构建MagicCam名称: 构建MagicCam名称: 构建MagicCam名称: 构建MagicCam名称: 构建MagicCam名称: 构建MagicCam名称: 构建 MagicCam
+on: workflow_dispatch事件: workflow_dispatch
+jobs:作业:
+  build:构建:
+    runs-on: ubuntu-latest运行环境: ubuntu-latest
+    steps:步骤:
+      - uses: actions/checkout@v4      - 使用: actions/checkout@v4
+      - name: Setup NDK      - 名称: 设置 NDK
+        uses: nttld/setup-ndk@v1使用: nttld/setup-ndk@v1使用: nttld/setup-ndk@v1使用: nttld/setup-ndk@v1
+        with:与:
+          ndk-version: r25cndk版本: r25c
+      - name: Build      - 名称: 构建
+        run: |运行: |
           chmod +x build.sh
           ./build.sh
       # 新增：把模块文件打包成zip（Magisk模块标准打包）
-      - name: Package Magisk Module Zip
-        run: |
+      - name: Package Magisk Module Zip      - 名称: 软件包 Magisk 模块 Zip - 名称: 打包 Magisk 模块 ZIP 文件
+        run: |运行: |
           zip -r MagicCam-Module.zip . -i "module.prop" -i "system/**/*" -i "*.so"
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: MagicCam-Module
+        uses: actions/upload-artifact@v4使用: actions/upload-artifact@v4
+        with:与:
+          name: MagicCam-Module名称: MagicCam-模块
           path: MagicCam-Module.zip
